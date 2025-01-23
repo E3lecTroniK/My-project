@@ -1,30 +1,18 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class Scenecontroller : MonoBehaviour
+public class sCENEcontroller : MonoBehaviour
 {
-    public static Scenecontroller instance;
-
-    private void Awake()
+    // Start is called before the first frame update
+    void Start()
     {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            DontDestroyOnLoad(gameObject);
-        }
+        
     }
 
-    public void NextLevel()
+    // Update is called once per frame
+    void Update()
     {
-        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
-    }
-
-    public void LoadScene(string sceneName)
-    {
-        SceneManager.LoadSceneAsync(sceneName);
+        
     }
 }

@@ -1,22 +1,18 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class FinishPoint : MonoBehaviour
 {
-    [SerializeField] bool goNextLevel;
-    [SerializeField] string LevelName;
-
-    private void OnTriggerEnter2D(Collider2D Collision)
+    // Start is called before the first frame update
+    void Start()
     {
-        if (Collision.CompareTag("Player"))
-        {
-            if (goNextLevel)
-            {
-                Scenecontroller.instance.NextLevel();
-            }
-            else
-            {
-                Scenecontroller.instance.LoadScene(LevelName);
-            }
-        }
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
     }
 }
