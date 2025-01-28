@@ -44,6 +44,8 @@ GameObject:
   - component: {fileID: 6041428064987234929}
   - component: {fileID: 1335363318652667341}
   - component: {fileID: 1650724466330924481}
+  - component: {fileID: 7997698474413395795}
+  - component: {fileID: 8015285774709290899}
   m_Layer: 3
   m_Name: Player 1
   m_TagString: Player
@@ -203,8 +205,59 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8772643b09d1fec448994c638e9c1f82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 1335363318652667341}
-  groundCheck: {fileID: 742088467012848754}
-  groundLayer:
+--- !u!95 &7997698474413395795
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4625991574785264018}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6e7522a9a4eb3d548b0675285e75805f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!70 &8015285774709290899
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4625991574785264018}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0037995789, y: -0.15915126}
+  m_Size: {x: 0.28238732, y: 0.06937485}
+  m_Direction: 1
