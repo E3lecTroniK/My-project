@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
     float jumpPower = 5f;
     bool isGrounded = false;
 
+    Vector2 startPosition;
+
     Rigidbody2D rb;
     Animator animator;
 
@@ -17,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        startPosition = transform.position;
     }
 
     // Update is called once per frame
@@ -57,4 +60,11 @@ public class PlayerMovement : MonoBehaviour
         isGrounded = true;
         animator.SetBool("isJumping", !isGrounded);
     }
+
+    public void Die()
+    {
+        transform.position = startPosition;
+    }
+
 }
+
