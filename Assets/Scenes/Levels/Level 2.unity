@@ -3863,7 +3863,7 @@ Transform:
   m_GameObject: {fileID: 1853885472}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.009, y: -0.193, z: 0.08339899}
+  m_LocalPosition: {x: 0.009, y: -0.1685, z: 0.08339899}
   m_LocalScale: {x: 0.33333334, y: 0.33333334, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3883,7 +3883,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4747691326451042095, guid: 3402283f7cfcb89459d8232df3511803, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.38
+      value: -1.405
       objectReference: {fileID: 0}
     - target: {fileID: 4747691326451042095, guid: 3402283f7cfcb89459d8232df3511803, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3931,13 +3931,56 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4747691326451042095, guid: 3402283f7cfcb89459d8232df3511803, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1853885473}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5648867015929744404, guid: 3402283f7cfcb89459d8232df3511803, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2621568856367158701}
   m_SourcePrefab: {fileID: 100100000, guid: 3402283f7cfcb89459d8232df3511803, type: 3}
+--- !u!1 &31318462592484589 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5648867015929744404, guid: 3402283f7cfcb89459d8232df3511803, type: 3}
+  m_PrefabInstance: {fileID: 31318462592484588}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2621568856367158700 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4747691326451042095, guid: 3402283f7cfcb89459d8232df3511803, type: 3}
   m_PrefabInstance: {fileID: 31318462592484588}
   m_PrefabAsset: {fileID: 0}
+--- !u!70 &2621568856367158701
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 31318462592484589}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.007851078, y: -0.14313173}
+  m_Size: {x: 0.18850057, y: 0.041589744}
+  m_Direction: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
