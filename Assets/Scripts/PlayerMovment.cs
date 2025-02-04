@@ -1,84 +1,60 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public Rigidbody2D rb;
-    [Header("Movement")]
-    public float moveSpeed = 5f;
-    float horizontalMovement;
+    float horizontalInput;
+    float moveSpeed = 5f;
+    bool isFacingRight = false;
+    float jumpPower = 5f;
+    bool isGrounded = false;
 
-    [Header("Jumping")]
-    public float jumpPower = 10f;
-    public int maxJumps = 2;
-    private int jumpsRemaining;
+    Rigidbody2D rb;
+    Animator animator;
 
-    [Header("GroundCheck")]
-    public Transform groundCheckPos;
-    public Vector2 groundCheckSize = new Vector2(0.49f, 0.03f);
-    public LayerMask groundLayer;
+    // Start is called before the first frame update
+    void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+    }
 
-    [Header("Gravity")]
-    public float baseGravity = 2f;
-    public float maxFallSpeed = 18f;
-    public float fallGravityMult = 2f;
-
+    // Update is called once per frame
     void Update()
     {
-        rb.velocity = new Vector2(horizontalMovement * moveSpeed, rb.velocity.y);
+        horizontalInput = Input.GetAxis("Horizontal");
 
-        //falling gravity
-        if (rb.velocity.y < 0)
+        FlipSprite();
+
+        if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            rb.gravityScale = baseGravity * fallGravityMult; //fall faster and faster
-            rb.velocity = new Vector2(rb.velocity.x, Mathf.Max(rb.velocity.y, -maxFallSpeed)); //max fall speed
-        }
-        else
-        {
-            rb.gravityScale = baseGravity;
-        }
-
-        GroundCheck();
-    }
-
-    public void Move(InputAction.CallbackContext context)
-    {
-        horizontalMovement = context.ReadValue<Vector2>().x;
-    }
-
-    public void Jump(InputAction.CallbackContext context)
-    {
-        if (jumpsRemaining > 0)
-        {
-            if (context.performed)
-            {
-                //Hold down jump button = full height
-                rb.velocity = new Vector2(rb.velocity.x, jumpPower);
-                jumpsRemaining--;
-            }
-            else if (context.canceled && rb.velocity.y > 0)
-            {
-                //Light tap of jump button = half the height
-                rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
-                jumpsRemaining--;
-            }
+            rb.velocity = new Vector2(rb.velocity.x, jumpPower);
+            isGrounded = false;
+            animator.SetBool("isJumping", !isGrounded);
         }
     }
 
-    private void GroundCheck()
+    private void FixedUpdate()
     {
-        if (Physics2D.OverlapBox(groundCheckPos.position, groundCheckSize, 0, groundLayer)) //checks if set box overlaps with ground
+        rb.velocity = new Vector2(horizontalInput * moveSpeed, rb.velocity.y);
+        animator.SetFloat("xVelocity", Math.Abs(rb.velocity.x));
+        animator.SetFloat("yVelocity", rb.velocity.y);
+    }
+
+    void FlipSprite()
+    {
+        if (isFacingRight && horizontalInput < 0f || !isFacingRight && horizontalInput > 0f)
         {
-            jumpsRemaining = maxJumps;
+            isFacingRight = !isFacingRight;
+            Vector3 ls = transform.localScale;
+            ls.x *= -1f;
+            transform.localScale = ls;
         }
     }
 
-    private void OnDrawGizmosSelected()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        //Ground check visual
-        Gizmos.color = Color.white;
-        Gizmos.DrawWireCube(groundCheckPos.position, groundCheckSize);
+        isGrounded = true;
+        animator.SetBool("isJumping", !isGrounded);
     }
 }
