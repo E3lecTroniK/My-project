@@ -44,9 +44,7 @@ GameObject:
   - component: {fileID: 6041428064987234929}
   - component: {fileID: 1335363318652667341}
   - component: {fileID: 7997698474413395795}
-  - component: {fileID: 8015285774709290899}
   - component: {fileID: 1554157094349186145}
-  - component: {fileID: 3236359277040106945}
   m_Layer: 3
   m_Name: Player 1
   m_TagString: Player
@@ -215,41 +213,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!70 &8015285774709290899
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4625991574785264018}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.0037995789, y: -0.15915126}
-  m_Size: {x: 0.28238732, y: 0.06937485}
-  m_Direction: 1
 --- !u!114 &1554157094349186145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,16 +225,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69f7f0936ab41ed489c40f31da900748, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3236359277040106945
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4625991574785264018}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c459dd0de6a556489c89e9dd1e8f96d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxJumps: 2

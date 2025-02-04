@@ -1,95 +1,84 @@
-using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    float horizontalInput;
-    float moveSpeed = 5f;
-    bool isFacingLeft = true;
-    float jumpPower = 5f;
-    bool isGrounded = false;
+    public Rigidbody2D rb;
+    [Header("Movement")]
+    public float moveSpeed = 5f;
+    float horizontalMovement;
 
+    [Header("Jumping")]
+    public float jumpPower = 10f;
+    public int maxJumps = 2;
+    private int jumpsRemaining;
 
-    // For double jump
-    int jumpCount = 0;
-    [SerializeField] int maxJumps = 2;
+    [Header("GroundCheck")]
+    public Transform groundCheckPos;
+    public Vector2 groundCheckSize = new Vector2(0.49f, 0.03f);
+    public LayerMask groundLayer;
 
-    // Animator parameters
-    // isJumping = true while moving upward
-    // isFalling = true while moving downward
-
-    Vector2 startPosition;
-
-    Rigidbody2D rb;
-    Animator animator;
-
-    void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
-        startPosition = transform.position;
-    }
+    [Header("Gravity")]
+    public float baseGravity = 2f;
+    public float maxFallSpeed = 18f;
+    public float fallGravityMult = 2f;
 
     void Update()
     {
-        horizontalInput = Input.GetAxis("Horizontal");
-        FlipSprite();
+        rb.velocity = new Vector2(horizontalMovement * moveSpeed, rb.velocity.y);
 
-        // Check if jump key was pressed and we haven't exceeded max jumps
-        if (Input.GetButtonDown("Jump") && jumpCount < maxJumps)
+        //falling gravity
+        if (rb.velocity.y < 0)
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpPower);
-            jumpCount++;
-            isGrounded = false;
-            animator.SetBool("isJumping", true);
-            animator.SetBool("isFalling", false);
+            rb.gravityScale = baseGravity * fallGravityMult; //fall faster and faster
+            rb.velocity = new Vector2(rb.velocity.x, Mathf.Max(rb.velocity.y, -maxFallSpeed)); //max fall speed
+        }
+        else
+        {
+            rb.gravityScale = baseGravity;
         }
 
-        // Update animator states based on y-velocity
-        if (!isGrounded)
+        GroundCheck();
+    }
+
+    public void Move(InputAction.CallbackContext context)
+    {
+        horizontalMovement = context.ReadValue<Vector2>().x;
+    }
+
+    public void Jump(InputAction.CallbackContext context)
+    {
+        if (jumpsRemaining > 0)
         {
-            if (rb.velocity.y > 0)
+            if (context.performed)
             {
-                animator.SetBool("isJumping", true);
-                animator.SetBool("isFalling", false);
+                //Hold down jump button = full height
+                rb.velocity = new Vector2(rb.velocity.x, jumpPower);
+                jumpsRemaining--;
             }
-            else if (rb.velocity.y < 0)
+            else if (context.canceled && rb.velocity.y > 0)
             {
-                animator.SetBool("isJumping", false);
-                animator.SetBool("isFalling", true);
+                //Light tap of jump button = half the height
+                rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
+                jumpsRemaining--;
             }
         }
     }
 
-    private void FixedUpdate()
+    private void GroundCheck()
     {
-        rb.velocity = new Vector2(horizontalInput * moveSpeed, rb.velocity.y);
-        animator.SetFloat("xVelocity", Math.Abs(rb.velocity.x));
-        animator.SetFloat("yVelocity", rb.velocity.y);
-    }
-
-    void FlipSprite()
-    {
-        if ((isFacingLeft && horizontalInput < 0f) || (!isFacingLeft && horizontalInput > 0f))
+        if (Physics2D.OverlapBox(groundCheckPos.position, groundCheckSize, 0, groundLayer)) //checks if set box overlaps with ground
         {
-            isFacingLeft = !isFacingLeft;
-            Vector3 ls = transform.localScale;
-            ls.x *= -1f;
-            transform.localScale = ls;
+            jumpsRemaining = maxJumps;
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnDrawGizmosSelected()
     {
-        // When player lands on the ground
-        isGrounded = true;
-        jumpCount = 0;
-        animator.SetBool("isJumping", false);
-        animator.SetBool("isFalling", false);
-    }
-
-    public void Die()
-    {
-        transform.position = startPosition;
+        //Ground check visual
+        Gizmos.color = Color.white;
+        Gizmos.DrawWireCube(groundCheckPos.position, groundCheckSize);
     }
 }
