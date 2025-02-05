@@ -5,21 +5,24 @@ public class PlayerMovement : MonoBehaviour
 {
     float horizontalInput;
     float moveSpeed = 5f;
-    bool isFacingRight = false;
+    bool isFacingLeft = true;
     float jumpPower = 5f;
     bool isGrounded = false;
+    Vector2 startPosition;
 
     Rigidbody2D rb;
     Animator animator;
 
-    // Start is called before the first frame update
+    public void Die()
+    {
+        transform.position = startPosition;
+    }
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         horizontalInput = Input.GetAxis("Horizontal");
@@ -30,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
             isGrounded = false;
-            animator.SetBool("isJumping", !isGrounded);
+            animator.SetBool("IsJumping", !isGrounded);
         }
     }
 
@@ -43,18 +46,23 @@ public class PlayerMovement : MonoBehaviour
 
     void FlipSprite()
     {
-        if (isFacingRight && horizontalInput < 0f || !isFacingRight && horizontalInput > 0f)
+        if (isFacingLeft && horizontalInput < 0f || !isFacingLeft && horizontalInput > 0f)
         {
-            isFacingRight = !isFacingRight;
+            isFacingLeft = !isFacingLeft;
             Vector3 ls = transform.localScale;
             ls.x *= -1f;
             transform.localScale = ls;
         }
     }
 
+    private void Awake()
+    {
+        startPosition = transform.position;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         isGrounded = true;
-        animator.SetBool("isJumping", !isGrounded);
+        animator.SetBool("IsJumping", !isGrounded);
     }
 }
