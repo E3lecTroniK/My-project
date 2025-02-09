@@ -10,7 +10,6 @@ public class PlayerMovement : MonoBehaviour
     bool isGrounded = false;
     Vector2 startPosition;
 
-    public FruitController fc;
 
     Rigidbody2D rb;
     Animator animator;
@@ -66,14 +65,5 @@ public class PlayerMovement : MonoBehaviour
     {
         isGrounded = true;
         animator.SetBool("IsJumping", !isGrounded);
-    }
-
-    void ontriggerEnter2D (Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Fruits"))
-        {
-            Destroy(other.gameObject);
-            fc.Fruitscount++;
-        }
     }
 }
