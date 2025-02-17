@@ -1,25 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Xml.Serialization;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PausedMenu : MonoBehaviour
+public class PauseMenu : MonoBehaviour
 {
-    public GameObject PauseMenu;
+    public GameObject pauseMenu;
 
     public static bool isPaused;
 
 
-
     void Start()
     {
-        PauseMenu.SetActive(false);
+        pauseMenu.SetActive(false);
     }
 
-    void Update()
+    private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (isPaused)
             {
@@ -29,28 +27,29 @@ public class PausedMenu : MonoBehaviour
             {
                 PauseGame();
             }
-
         }
     }
 
+
     public void PauseGame()
     {
-        PauseMenu.SetActive(true);
-        Time.timeScale = 0f;
+        pauseMenu.SetActive(true);
+        Time.timeScale = 0F;
         isPaused = true;
     }
 
     public void ResumeGame()
     {
-        PauseMenu.SetActive(false);
-        Time.timeScale = 1f;
-        isPaused = false;
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1F;
+        isPaused=false;
     }
 
     public void GoToMainMenu()
     {
-        Time.timeScale = 1f;
+        pauseMenu.SetActive(false);
         SceneManager.LoadScene("MainMenu");
+        isPaused = false;
     }
 
     public void QuitGame()
