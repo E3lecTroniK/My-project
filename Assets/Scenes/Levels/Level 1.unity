@@ -4320,6 +4320,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8673847942236296493}
     - target: {fileID: 755133685290906294, guid: f51469f75d0431543a5f9c872f95fd76, type: 3}
+      propertyPath: PausedMenu
+      value: 
+      objectReference: {fileID: 8673847942236296493}
+    - target: {fileID: 755133685290906294, guid: f51469f75d0431543a5f9c872f95fd76, type: 3}
       propertyPath: pauseMenuCanvas
       value: 
       objectReference: {fileID: 5090917440181630426}
@@ -4397,7 +4401,7 @@ PrefabInstance:
       objectReference: {fileID: 2346921020584521385}
     - target: {fileID: 1944504480680192760, guid: 632688c8d8c36464f89661acce9cb329, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: MainMenu
+      value: GoToMainMenu
       objectReference: {fileID: 0}
     - target: {fileID: 1944504480680192760, guid: 632688c8d8c36464f89661acce9cb329, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -4413,7 +4417,7 @@ PrefabInstance:
       objectReference: {fileID: 2346921020584521385}
     - target: {fileID: 5918831083055114261, guid: 632688c8d8c36464f89661acce9cb329, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Quit
+      value: QuitGame
       objectReference: {fileID: 0}
     - target: {fileID: 5918831083055114261, guid: 632688c8d8c36464f89661acce9cb329, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
