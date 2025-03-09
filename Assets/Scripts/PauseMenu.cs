@@ -7,7 +7,7 @@ public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenu;
 
-    public static bool isPaused;
+    public static bool isPaused = false;
 
     void Start()
     {
@@ -18,7 +18,7 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (isPaused)
+            if (isPaused == true)
             {
                 Resume();
             }
@@ -48,10 +48,12 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
+        isPaused = false;
     }
 
     public void Quit()
     {
+        isPaused = false;
         Application.Quit();
     }
 }

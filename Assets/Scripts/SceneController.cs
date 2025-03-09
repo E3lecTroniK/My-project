@@ -5,11 +5,6 @@ public class SceneController : MonoBehaviour
 {
     public static SceneController instance;
 
-    private void Awake()
-    {
-        
-    }
-
     public void NextLevel()
     {
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
