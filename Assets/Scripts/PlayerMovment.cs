@@ -14,6 +14,8 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D rb;
     Animator animator;
 
+    public int fruits;
+
     public void Die()
     {
         transform.position = startPosition;

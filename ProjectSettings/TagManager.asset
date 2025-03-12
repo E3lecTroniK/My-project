@@ -46,9 +46,15 @@ TagManager:
   - name: BackGround
     uniqueID: 2736899305
     locked: 0
-  - name: Player
-    uniqueID: 1845351811
+  - name: Trap
+    uniqueID: 781132853
     locked: 0
   - name: Ground
     uniqueID: 911470919
+    locked: 0
+  - name: Pickup
+    uniqueID: 1275516717
+    locked: 0
+  - name: Player
+    uniqueID: 1845351811
     locked: 0
