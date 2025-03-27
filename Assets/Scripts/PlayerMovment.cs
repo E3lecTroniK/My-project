@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -10,12 +11,10 @@ public class PlayerMovement : MonoBehaviour
     bool isGrounded = false;
     Vector2 startPosition;
 
-    public FruitManager fm;
-
     Rigidbody2D rb;
     Animator animator;
 
-    public int fruits;
+    public int Fruits;
 
     public void Die()
     {
@@ -66,17 +65,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        isGrounded = true;
         animator.SetBool("IsJumping", !isGrounded);
-    }
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Appple"))
-        {
-            Destroy(other.gameObject);
-            fm.FruitsCount++;
-        }
-
+        isGrounded = true;
     }
 }

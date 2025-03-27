@@ -8,7 +8,7 @@ public class Apple : MonoBehaviour
     {
         if (collision.GetComponent<PlayerMovement>() != null)
         {
-            collision.GetComponent<PlayerMovement>().fruits++;
+            collision.GetComponent<PlayerMovement>().Fruits++;
             Destroy(gameObject);
 
         }

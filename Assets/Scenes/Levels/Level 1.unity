@@ -4910,7 +4910,7 @@ GameObject:
   - component: {fileID: 1085162938}
   m_Layer: 3
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5333,6 +5333,23 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!1 &1133673755 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7405378928216312536, guid: 91257033f91bdd340843d2a7c0c6a430, type: 3}
+  m_PrefabInstance: {fileID: 1371382624}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1133673761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1133673755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90c9a4eed3c34ef4da6e9071302b8881, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1159538689
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5401,6 +5418,10 @@ PrefabInstance:
       propertyPath: fc
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4254721211511537292, guid: 6aa006c84adbad2439382b69cd508687, type: 3}
+      propertyPath: fm
+      value: 
+      objectReference: {fileID: 2346921020584521389}
     - target: {fileID: 4625991574785264018, guid: 6aa006c84adbad2439382b69cd508687, type: 3}
       propertyPath: m_Name
       value: Player 1
@@ -5463,9 +5484,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Apple
       objectReference: {fileID: 0}
+    - target: {fileID: 7405378928216312536, guid: 91257033f91bdd340843d2a7c0c6a430, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 9180313402852213732, guid: 91257033f91bdd340843d2a7c0c6a430, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.34947926
+      value: 0.95
       objectReference: {fileID: 0}
     - target: {fileID: 9180313402852213732, guid: 91257033f91bdd340843d2a7c0c6a430, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5506,7 +5531,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7405378928216312536, guid: 91257033f91bdd340843d2a7c0c6a430, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1133673761}
   m_SourcePrefab: {fileID: 100100000, guid: 91257033f91bdd340843d2a7c0c6a430, type: 3}
 --- !u!1 &1383622180
 GameObject:
@@ -5703,14 +5731,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 814056896662184345, guid: f51469f75d0431543a5f9c872f95fd76, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2106237604731245007, guid: f51469f75d0431543a5f9c872f95fd76, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2346921020584521385}
+    - targetCorrespondingSourceObject: {fileID: 2106237604731245007, guid: f51469f75d0431543a5f9c872f95fd76, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2346921020584521389}
   m_SourcePrefab: {fileID: 100100000, guid: f51469f75d0431543a5f9c872f95fd76, type: 3}
 --- !u!1 &2346921020584521384 stripped
 GameObject:
@@ -5730,6 +5760,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 7401336505005780360}
+--- !u!114 &2346921020584521389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2346921020584521384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e243c2bbe0b9e8947b42500309ab1c62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FruitsCount: 0
+  FruitsText: {fileID: 0}
 --- !u!1001 &5895007476481185757
 PrefabInstance:
   m_ObjectHideFlags: 0
