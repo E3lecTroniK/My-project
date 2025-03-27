@@ -14,8 +14,6 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D rb;
     Animator animator;
 
-    public int Fruits;
-
     public void Die()
     {
         transform.position = startPosition;
@@ -65,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        animator.SetBool("IsJumping", !isGrounded);
         isGrounded = true;
+        animator.SetBool("IsJumping", !isGrounded);
     }
 }

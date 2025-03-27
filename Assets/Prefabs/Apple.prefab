@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 9180313402852213732}
   - component: {fileID: 5246361489404865521}
   - component: {fileID: 3231126888672931348}
-  - component: {fileID: 6186015971892744417}
+  - component: {fileID: -9093137454206676545}
   m_Layer: 0
   m_Name: Apple
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1275516717
+  m_SortingLayerID: 1845351811
   m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -442874978, guid: 1ddc9afd21fec77489b1248d18f31b68, type: 3}
@@ -107,7 +107,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!61 &6186015971892744417
+--- !u!61 &-9093137454206676545
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -139,7 +139,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.009510279, y: -0.007722974}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -150,5 +150,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0302529, y: 1.0623329}
+  m_Size: {x: 0.75, y: 0.875}
   m_EdgeRadius: 0
